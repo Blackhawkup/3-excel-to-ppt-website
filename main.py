@@ -53,7 +53,8 @@ async def process_files(
     return FileResponse(
         path=output_path,
         filename="modified.pptx",
-        media_type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
+        media_type='application/vnd.openxmlformats-officedocument.presentationml.presentation',
+        background=background_tasks
     )
 
 @app.post("/monthly/")
