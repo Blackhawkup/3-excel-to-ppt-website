@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ready Reckoner PPT Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html" id="nav-home">Monthly PPT Generator</a></li>
+            <li><a href="ria.html" id="nav-ria">RIA Automation</a></li>
+            <li><a href="readyreckoner.html" id="nav-rr" class="active">Ready Reckoner</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Ready Reckoner PPT Generator (PMS/Hybrid)</h1>
+        <form class="form-upload" id="readyreckoner-form">
+            <div class="input-group">
+                <label for="rr-process-type">Process Type</label>
+                <select id="rr-process-type" name="process_type" required>
+                    <option value="PMS">PMS</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="rr-n-pms">Number of PMS (for PMS mode):</label>
+                <input type="number" id="rr-n-pms" name="n_pms" value="1" min="1" max="20">
+            </div>
+            <div class="input-group">
+                <label for="rr-n-hybrid">Number of Hybrid (for Hybrid mode):</label>
+                <input type="number" id="rr-n-hybrid" name="n_hybrid" value="1" min="1" max="20">
+            </div>
+            <div class="input-group">
+                <label for="rr-excel">Upload Excel file (.xlsx)</label>
+                <input type="file" name="excel_file" id="rr-excel" required accept=".xlsx">
+            </div>
+            <div class="input-group">
+                <label for="rr-pms-template">Upload PMS Template (.pptx)</label>
+                <input type="file" name="pms_template" id="rr-pms-template" required accept=".pptx">
+            </div>
+            <div class="input-group">
+                <label for="rr-hybrid-template">Upload Hybrid Template (.pptx)</label>
+                <input type="file" name="hybrid_template" id="rr-hybrid-template" required accept=".pptx">
+            </div>
+            <button type="submit">Generate Ready Reckoner PPT</button>
+            <div class="result-message" id="readyreckoner-result"></div>
+        </form>
+        <div class="instructions" id="instructions-readyreckoner">
+            Instructions for using Ready Reckoner PPT Generator go here.<br>
+            - Select the process type.<br>
+            - Upload all required files.<br>
+            - Enter numbers as needed.<br>
+            - Click <b>Generate Ready Reckoner PPT</b>.<br>
+            Download will start automatically if successful.
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>

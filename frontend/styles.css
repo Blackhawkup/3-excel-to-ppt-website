@@ -1,0 +1,190 @@
+:root {
+    --button-blue: #91C8E4;
+    --button-blue-dark: #4682A9;
+    --nav-light-blue: #e8f2fc;
+    --white: #fff;
+    --black: #111;
+    --main-form-width: 430px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    background: var(--nav-light-blue);
+    color: var(--black);
+    padding: 0.8rem 0;
+    box-shadow: 0 1px 7px #00304910;
+    border-bottom: 2px solid var(--button-blue);
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0 2rem;
+    max-width: 700px;
+    justify-content: center;
+}
+
+nav ul li a {
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.025em;
+    padding: 0.33em 0.95em;
+    border-radius: 7px;
+    transition: background 0.17s, box-shadow 0.13s, color 0.13s;
+    border: 1.5px solid transparent;
+    background: transparent;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    background: var(--button-blue);
+    color: var(--black);
+    border-color: var(--button-blue);
+    box-shadow: 0 0 12px #91C8E433;
+}
+
+main {
+    flex: 1 1 auto;
+    max-width: var(--main-form-width);
+    min-width: 320px;
+    margin: 3.2rem auto 2rem;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2.1rem 2.7rem;
+    box-shadow: 0 7px 28px #91C8E437, 0 2px 10px #00304915;
+    border: 2px solid var(--button-blue);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 1.55rem;
+    color: var(--black);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.6em;
+    font-weight: 700;
+}
+
+.form-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.7rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.42em;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: .1rem;
+    font-size: 1.02rem;
+    letter-spacing: 0.01em;
+}
+
+.input-group input[type='file'],
+.input-group input[type='text'],
+.input-group input[type='number'],
+.input-group select {
+    padding: 0.6rem 0.7rem;
+    border: 2px solid var(--button-blue);
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-family: inherit;
+    background: var(--white);
+    color: var(--black);
+    transition: box-shadow 0.15s, border 0.19s;
+    width: 100%;
+    box-shadow: none;
+}
+
+.input-group input[type='file'] {
+    padding: 0.7rem 0.2rem;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: var(--button-blue-dark);
+    box-shadow: 0 0 8px #4682a923;
+}
+
+/* Button and interaction states */
+button {
+    background: var(--white);
+    color: var(--black);
+    border: 2.5px solid var(--button-blue);
+    padding: 0.93rem 1.2rem;
+    border-radius: 9px;
+    font-size: 1.12rem;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 1.2rem;
+    box-shadow: 0 0 12px #91C8E422, 0 2px 12px #00304911;
+    transition: background 0.17s, box-shadow 0.16s, color 0.15s, border-color 0.15s;
+    letter-spacing: 0.01em;
+}
+
+button:hover,
+button:focus {
+    background: var(--button-blue);
+    color: var(--white);
+    border-color: var(--button-blue-dark);
+    box-shadow: 0 0 18px #91C8E4b2;
+}
+
+button:active {
+    background: var(--button-blue-dark);
+    border-color: var(--button-blue-dark);
+    color: var(--white);
+}
+
+.instructions {
+    margin-top: 2rem;
+    padding: 1.1rem 1.25rem;
+    background: #f3f8fc;
+    border-left: 5px solid var(--button-blue);
+    border-radius: 0 8px 8px 0;
+    min-height: 52px;
+    color: #222;
+    font-size: 1.01rem;
+    box-shadow: 0 1px 4px #91C8E418;
+}
+
+.result-message {
+    margin-top: 1.2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--button-blue-dark);
+    letter-spacing: 0.02em;
+    min-height: 1.3em;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 0.8rem 1rem;
+        min-width: 0;
+        max-width: 98vw;
+    }
+}

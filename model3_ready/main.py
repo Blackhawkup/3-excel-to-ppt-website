@@ -1,16 +1,19 @@
 from fastapi import FastAPI, UploadFile, File, Form, BackgroundTasks
-from fastapi.responses import FileResponse
-import os, uuid, shutil
-from fastapi.responses import RedirectResponse
-from model3_ready.ready_reckoner import run_pms, run_hybrid
+from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
+import os
+import uuid
+import shutil
 import tempfile
+
+# Import your model logic
 from model1_monthly.excel_to_ppt import generate_ppt as generate_monthly_ppt
 from model2_ria.ria_automation import generate_ppt as generate_ria_ppt
+from ready_reckoner import run_pms, run_hybrid   # <-- ensures this file is in your project
 
 app = FastAPI()
 
-from fastapi.staticfiles import StaticFiles
-
+# Serve your frontend (HTML) files
 app.mount("/frontend", StaticFiles(directory="frontend", html=True), name="frontend")
 
 
@@ -18,6 +21,10 @@ app.mount("/frontend", StaticFiles(directory="frontend", html=True), name="front
 async def root():
     return RedirectResponse(url="/frontend/index.html")
 
+
+########################
+# Endpoint 1 (/process-ppt/)
+# RIA Automation endpoint
 @app.post("/process-ppt/")
 async def process_files(
     background_tasks: BackgroundTasks,
@@ -53,11 +60,11 @@ async def process_files(
     )
 
     def cleanup():
-        os.remove(ppt_path)
-        os.remove(excel1_path)
-        os.remove(excel2_path)
-        os.remove(excel3_path)
-        os.remove(output_path)
+        for p in [ppt_path, excel1_path, excel2_path, excel3_path, output_path]:
+            try:
+                os.remove(p)
+            except Exception:
+                pass
 
     background_tasks.add_task(cleanup)
 
@@ -68,8 +75,15 @@ async def process_files(
         background=background_tasks
     )
 
+
+########################
+# Endpoint 2 (/monthly/)
+# Model1 Monthly endpoint
 @app.post("/monthly/")
-async def generate_monthly_ppt_endpoint(file: UploadFile = File(...), background_tasks: BackgroundTasks = BackgroundTasks()):
+async def generate_monthly_ppt_endpoint(
+    file: UploadFile = File(...),
+    background_tasks: BackgroundTasks = BackgroundTasks()
+):
     unique_id = uuid.uuid4().hex
     input_filename = f"{unique_id}_data.xlsx"
     input_path = os.path.join("model1_monthly", input_filename)
@@ -93,6 +107,9 @@ async def generate_monthly_ppt_endpoint(file: UploadFile = File(...), background
     )
 
 
+########################
+# Endpoint 3 (/generate_pptx/)
+# ReadyReckoner (PMS/Hybrid) endpoint
 @app.post("/generate_pptx/")
 async def generate_pptx(
     background_tasks: BackgroundTasks,
@@ -135,3 +152,4 @@ async def generate_pptx(
     except Exception as e:
         shutil.rmtree(tmp_dir, ignore_errors=True)
         raise e
+

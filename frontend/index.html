@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Monthly PPT Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html" id="nav-home" class="active">Monthly PPT Generator</a></li>
+            <li><a href="ria.html" id="nav-ria">RIA Automation</a></li>
+            <li><a href="readyreckoner.html" id="nav-rr">Ready Reckoner</a></li>
+
+        </ul>
+    </nav>
+    <main>
+        <h1>Monthly PPT Generator</h1>
+        <form class="form-upload" id="monthly-form">
+            <div class="input-group">
+                <label for="monthly-excel">Upload Excel file (.xlsx)</label>
+                <input type="file" name="file" id="monthly-excel" required accept=".xlsx">
+            </div>
+            <button type="submit">Generate PPT</button>
+            <div class="result-message" id="monthly-result"></div>
+        </form>
+        <div class="instructions" id="instructions-monthly">
+            Lorem ipsum instructions for monthly process. Edit this text as needed.<br>
+            - Placeholder 1<br>
+            - Placeholder 2<br>
+            (Add your real instructions here...)
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>
