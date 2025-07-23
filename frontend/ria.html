@@ -21,33 +21,38 @@
         <h1>RIA PPT Automation</h1>
         <form class="form-upload" id="ria-form">
             <div class="input-group">
-                <label for="ria-ppt">PPT Template (.pptx)</label>
+                <label for="ria-ppt">PPT Template named Quarterly Review_Template (.pptx)</label>
                 <input type="file" name="ppt_file" id="ria-ppt" required accept=".pptx">
             </div>
             <div class="input-group">
-                <label for="ria-excel1">Excel File 1 (.xlsx)</label>
+                <label for="ria-excel1">Excel File named Portfolio-performance for wt avg days(.xlsx)</label>
                 <input type="file" name="excel_file1" id="ria-excel1" required accept=".xlsx">
             </div>
             <div class="input-group">
-                <label for="ria-excel2">CSV File 2 (.csv)</label>
+                <label for="ria-excel2">CSV File named PBS Quarter for Alternatives Breakup(.csv)</label>
                 <input type="file" name="excel_file2" id="ria-excel2" required accept=".csv">
             </div>
             <div class="input-group">
-                <label for="ria-excel3">Excel File 3 (.xlsx)</label>
+                <label for="ria-excel3">Excel File named Automation Reports (.xlsx)</label>
                 <input type="file" name="excel_file3" id="ria-excel3" required accept=".xlsx">
             </div>
             <div class="input-group">
-                <label for="owner-no">Owner Number</label>
+                <label for="owner-no">Owner Number , the number on the 1st sheet of automation reports</label>
                 <input type="text" name="owner_no" id="owner-no" placeholder="Enter owner number" required>
             </div>
             <button type="submit">Process and Download PPT</button>
             <div class="result-message" id="ria-result"></div>
         </form>
         <div class="instructions" id="instructions-ria">
-            Placeholder instructions for RIA process.<br>
-            - Placeholder step A<br>
-            - Placeholder step B<br>
-            (Replace with your own instructions)
+            Instructions for using Ready Reckoner PPT Generator go here.<br>
+            - Select the process type.<br>
+            - Upload all required files.<br>
+            - Enter numbers as needed.<br>
+            - Click <b><br>
+            Please follow the template for uploading the files.<br>
+            Ensure that the PPT template and Excel/CSV files are named correctly as specified.<br>
+            The API/website is well tested and should work without any issues.<br>
+            In case of any error, check the templates again and re-upload.<br>
         </div>
     </main>
     <script src="main.js"></script>
